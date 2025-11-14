@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Inventario</h2>
+
+<a href="/inventario/agregar">Agregar al inventario</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Acciones</th>
+    </tr>
+
+    {% for i in inventario %}
+    <tr>
+        <td>{{ i[0] }}</td>
+        <td>{{ i[1] }}</td>
+        <td>{{ i[2] }}</td>
+        <td>
+            <a href="/inventario/editar/{{ i[0] }}">Editar</a> |
+            <a href="/inventario/eliminar/{{ i[0] }}" onclick="return confirm('Eliminar registro?')">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

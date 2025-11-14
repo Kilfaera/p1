@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Agregar al inventario</h2>
+
+<form action="/inventario/crear" method="POST">
+    Producto:
+    <select name="producto">
+        {% for p in productos %}
+        <option value="{{ p[0] }}">{{ p[1] }}</option>
+        {% endfor %}
+    </select>
+
+    Cantidad:
+    <input type="number" name="cantidad" required min="1">
+
+    <button type="submit">Guardar</button>
+</form>
+
+<a href="/inventario">Volver</a>
+
+{% endblock %}

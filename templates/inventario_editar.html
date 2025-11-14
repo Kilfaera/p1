@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Editar inventario</h2>
+
+<p>Producto: {{ inventario[1] }}</p>
+
+<form action="/inventario/actualizar/{{ inventario[0] }}" method="POST">
+    Cantidad:
+    <input type="number" name="cantidad" value="{{ inventario[2] }}" required min="0">
+
+    <button type="submit">Actualizar</button>
+</form>
+
+<a href="/inventario">Volver</a>
+
+{% endblock %}
